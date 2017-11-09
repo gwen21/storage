@@ -1,0 +1,16 @@
+version: '2.2'
+services:
+
+  api-bridge-test:
+    build:
+      context: services
+      dockerfile: api-bridge/Dockerfile.Test
+    depends_on:
+      - api-bridge
+
+  storage-test:
+    build:
+      context: services
+      dockerfile: storage-minio/Dockerfile.Test
+    depends_on:
+      - storage

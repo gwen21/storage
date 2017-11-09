@@ -1,0 +1,16 @@
+version: '2.2'
+services:
+
+  storage:
+    build:
+      context: services
+      dockerfile: storage-minio/Dockerfile
+    volumes:
+      - /var/lib/zephir/data:/data
+      - ./services/storage-minio/src:/srv/minio
+    environment:
+      - MINIO_ACCESS_KEY=zephir # minio user
+      - MINIO_SECRET_KEY=zephir123 # minio password
+      - MINIO_REGION=us-east-1 # region for storage buckets (see amazon S3 specs)
+      - MINIO_BROWSER=on # activate minio http browser (http://<zephir_server>:300015)
+

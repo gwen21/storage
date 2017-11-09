@@ -1,0 +1,11 @@
+FROM zephir_storage:latest
+
+RUN apk add --no-cache --update pytest
+RUN pip3 install pytest-asyncio
+
+COPY storage/script/test /usr/local/bin/test-storage
+RUN chmod +x /usr/local/bin/test-storage
+
+ENV ZEPHIR_TEST_TYPE=unit
+
+CMD /usr/local/bin/test-storage

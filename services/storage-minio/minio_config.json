@@ -1,0 +1,20 @@
+{
+	"version": "19",
+	"logger": {
+		"console": {
+			"enable": true
+		},
+		"file": {
+			"enable": false,
+			"filename": "/minio.log"
+		}
+	},
+	"notify": {
+		"webhook": {
+			"1": {
+				"enable": true,
+				"endpoint": "http://localhost:3000/event"
+			}
+		}
+	}
+}
